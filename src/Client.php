@@ -61,7 +61,7 @@
 
         static function getAll()
         {
-            $all_restaurants = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $all_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
             $clients_to_return = array();
             foreach($all_clients as $current_client) {
                 $name = $current_client['name'];
