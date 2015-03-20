@@ -156,27 +156,23 @@
 		}
 
 
-		//READ specific cuisine instead of all cuisines.
-        //This find method should return a cuisine given its id.
-        //It will be used to display a single cuisine by clicking a link formatting the URL to include its id number.
+		//READ specific stylist instead of all stylists.
+        //This find method should return a stylist given their id.
+        //It will be used to display a single stylist by clicking a link formatting the URL to include its id number.
 
         function test_find()
         {
-        	//Arrange
-        	$name = "Roxy";
-        	$id = 1;
-        	$test_stylist = new Stylist($name, $id);
-        	$test_stylist->save();
+            $name = "Ernestine";
+            $id = 1;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
 
-        	//Act
-        	$result = Stylist::find($test_stylist->getId());
+            $result = Stylist::find($test_stylist->getId());
 
-        	//Assert
-        	$this->assertEquals($test_stylist, $result);
-
-        	
-
+            $this->assertEquals($test_stylist, $result);
         }
+
+        
 
 
 
