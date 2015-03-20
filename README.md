@@ -21,8 +21,6 @@ Composer
 
 Database Commands Log
 
-****_Please include (as a backup) all the psql commands you have run in the terminal for your project in your README file.******************************
-
 //Create hair_salon database
 
 bojana=# CREATE DATABASE hair_salon;
