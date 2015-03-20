@@ -44,6 +44,17 @@ CREATE TABLE
 hair_salon=# 
 
 
+//Connect to hair_salon_test db
+bojana=# \connect hair_salon_test;
+You are now connected to database "hair_salon_test" as user "bojana".
+hair_salon_test=# \dt
+No relations found.
+hair_salon_test=# \l
+
+//Create stylists table
+hair_salon_test=# CREATE TABLE stylists (id serial primary key, name varchar);
+CREATE TABLE
+
 
 
 
