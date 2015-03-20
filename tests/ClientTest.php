@@ -110,34 +110,33 @@
         //It will be used to display a single client by clicking a link formatting the URL to include its id number.
         function test_find()
         {
+            //Arrange
             $name = "Brian";
             $id = 1;
-            $test_stylist = new Stylist($name, $id);
-            $test_stylist->save();
-            $stylist_id = $test_stylist->getId();
-
-            $name = "Lorna";
-            $id = 1;
+            $stylist_id = 1;
             $test_client = new Client($name, $id, $stylist_id);
             $test_client->save();
 
+            $name2 = "Lorna";
+            $id2 = 2;
+            $stylist_id = 2;
+            $test_client2 = new Client($name2, $id2, $stylist_id);
+            $test_client2->save();
+
+            //Act
             $result = Client::find($test_client->getId());
 
+            //Assert
             $this->assertEquals($test_client, $result);
         }
 
-        //CREATE 
+        //CREATE : //Saves the client object information into the database.
         function test_save()
         {
             //Arrange
             $name = "Harmony";
             $id = 1;
-            $test_stylist = new Stylist($name, $id);
-            $test_stylist->save();
-            $stylist_id = $test_stylist->getId();
-
-            $name = "Mels";
-            $id = 1;
+            $stylist_id = 1;
             $test_client = new Client($name, $id, $stylist_id);
 
             //Act
@@ -187,23 +186,21 @@
         {
             //Arrange
             $name = "Damian";
+            $name2 = "Olive";
+            $stylist_id = 1;
+            $stylist_id2 = 2;
             $id = 1;
-            $test_stylist = new Stylist($name, $id);
-            $test_stylist->save();
-            $stylist_id = $test_stylist->getId();
+            $id2 = 2;
 
-            $name = "Rose";
-            $id = 1;
             $test_client = new Client($name, $id, $stylist_id);
+            $test_client2 = new Client($name2, $id2, $stylist_id2);
 
-            $name = "Eunice";
-            $id = 2;
-            $test_client2 = new Client($name, $id, $stylist_id);
+            $test_client->save();
+            $test_client2->save();
 
             //Act
             
-            $test_client->save();
-            $test_client2->save();
+            
             Client::deleteAll();
 
             //Assert
@@ -216,19 +213,18 @@
         function test_getId()
         {
             //assign a specific id so we can be sure to get it back from the object.
+
+            //Arrange
             $name = "Ruby";
             $id = 1;
-            $test_stylist = new Stylist($name, $id);
-            $test_stylist->save();
-            $stylist_id = $test_stylist->getId();
-
-            $name = "Winston";
-            $id = 1;
+            $stylist_id = 1;
             $test_client = new Client($name, $id, $stylist_id);
 
+            //Act
             $result = $test_client->getId();
 
-            $this->assertEquals($id, $result);
+            //Assert
+            $this->assertEquals(1, $result);
         }
 
 
@@ -278,26 +274,18 @@
         //Delete only one client
         function test_delete()
         {
-            $name = "Oscar";
-            $id = 1;
-            $test_stylist = new Stylist($name, $id);
-            $test_stylist->save();
-            $stylist_id = $test_stylist->getId();
-
-            $name = "Bill";
-            $id = 1;
-            $test_client = new Client($name, $id, $stylist_id);
+            //Arrange
+            $stylist_id = 9;
+            $test_client = new Client("Jetta", 9);
             $test_client->save();
+            $id = 1;
 
-            $name2 = "April";
-            $id2 = 2;
-            $test_client2 = new Client($name2, $id2, $stylist_id);
-            $test_client2->save();
-
+            //Act
             $test_client->delete();
+            $test_client = Client::getAll();
 
-            $this->assertEquals([$test_client2], Client::getAll());
-
+            //Assert
+            $this->assertEquals([], $test_client);
         }
 
     }
