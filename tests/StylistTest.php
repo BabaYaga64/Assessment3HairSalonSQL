@@ -34,7 +34,7 @@
 
 			//Arrange
 			$name = "Fred";
-			$id = 2;
+			$id = 1;
 			$test_stylist = new Stylist($name, $id);
 
 			//Act
@@ -52,7 +52,7 @@
 			//Arrange
 			//create stylist
 			$name = "Bruno";
-			$id = 3;
+			$id = 1;
 			$test_stylist = new Stylist($name, $id);
 
 			//Act
@@ -123,10 +123,60 @@
 
 //ACT ON SPECIFIC STYLISTS SECTION
 
+		function test_getId()
+		{
+			//Arrange
+			//assign a specific id so we can be sure to get it back from the object.
+			$name = "Vernon";
+			$id = 1;
+			$test_stylist = new Stylist($name, $id);
+
+			//Act
+			$result = $test_stylist->getId();
+
+			//Assert
+			$this->assertEquals($id, $result);
+		}
 
 
+		function test_setId()
+		{
+			//Arrange
+			//assign a specific id so we can change it, and then be sure to get it back from the object.
+			$name = "Vernon";
+			$id = 1;
+			$test_stylist = new Stylist($name, $id);
+
+			//Act
+			$test_stylist->setId(2);
+			$result = $test_stylist->getId();
+
+			//Assert
+			$this->assertEquals(2, $result);
+		}
 
 
+		//READ specific cuisine instead of all cuisines.
+        //This find method should return a cuisine given its id.
+        //It will be used to display a single cuisine by clicking a link formatting the URL to include its id number.
+
+        function test_find()
+        {
+        	//Arrange
+        	$name = "Roxy";
+        	$id = 1;
+        	$test_stylist = new Stylist($name, $id);
+        	$test_stylist->save();
+
+        	//Act
+        	$result = Stylist::find($test_stylist->getId());
+
+        	//Assert
+        	$this->assertEquals($test_stylist, $result);
+
+        	
+
+        }
 
 
 
