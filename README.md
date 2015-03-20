@@ -19,9 +19,29 @@ Twig
 Composer
 
 
-Database Commands
+Database Commands Log
 
 ****_Please include (as a backup) all the psql commands you have run in the terminal for your project in your README file.******************************
+
+//Create hair_salon database
+
+bojana=# CREATE DATABASE hair_salon;
+CREATE DATABASE
+bojana=# \c hair_salon;
+You are now connected to database "hair_salon" as user "bojana".
+
+//Create hair_salon_test
+hair_salon=# CREATE DATABASE hair_salon_testWITH TEMPLATE hair_salon;
+CREATE DATABASE
+hair_salon=# 
+hair_salon=# \c hair_salon_test;
+FATAL:  database "hair_salon_test" does not exist
+Previous connection kept
+
+//Create stylists table
+hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
+CREATE TABLE
+hair_salon=# 
 
 
 
