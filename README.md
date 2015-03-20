@@ -55,6 +55,21 @@ hair_salon_test=# \l
 hair_salon_test=# CREATE TABLE stylists (id serial primary key, name varchar);
 CREATE TABLE
 
+//Drop clients table from hair_salon_test database
+hair_salon_test=# DROP TABLE clients;
+DROP TABLE
+hair_salon_test=#
+
+//Connect to hair_salon_db
+hair_salon_test=# \connect hair_salon
+You are now connected to database "hair_salon" as user "bojana".
+hair_salon=# 
+
+//Create clients table in hair_salon db
+hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name);
+
+//Create clients table in hair_salon_test db
+hair_salon_test=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
 
 
 
