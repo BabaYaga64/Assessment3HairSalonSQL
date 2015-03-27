@@ -21,53 +21,25 @@ Composer
 
 Database Commands Log
 
-//Create hair_salon database
-
 bojana=# CREATE DATABASE hair_salon;
 CREATE DATABASE
 bojana=# \c hair_salon;
 You are now connected to database "hair_salon" as user "bojana".
-
-//Create hair_salon_test
-hair_salon=# CREATE DATABASE hair_salon_testWITH TEMPLATE hair_salon;
-CREATE DATABASE
 hair_salon=# 
-hair_salon=# \c hair_salon_test;
-FATAL:  database "hair_salon_test" does not exist
-Previous connection kept
 
-//Create stylists table
 hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 CREATE TABLE
 hair_salon=# 
 
-
-//Connect to hair_salon_test db
-bojana=# \connect hair_salon_test;
-You are now connected to database "hair_salon_test" as user "bojana".
-hair_salon_test=# \dt
-No relations found.
-hair_salon_test=# \l
-
-//Create stylists table
-hair_salon_test=# CREATE TABLE stylists (id serial primary key, name varchar);
+hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY,name varchar, stylist_id int);
 CREATE TABLE
-
-//Drop clients table from hair_salon_test database
-hair_salon_test=# DROP TABLE clients;
-DROP TABLE
-hair_salon_test=#
-
-//Connect to hair_salon_db
-hair_salon_test=# \connect hair_salon
-You are now connected to database "hair_salon" as user "bojana".
 hair_salon=# 
 
-//Create clients table in hair_salon db
-hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name);
-
-//Create clients table in hair_salon_test db
-hair_salon_test=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar);
+hair_salon=# CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+CREATE DATABASE
+hair_salon=# \c hair_salon_test;
+You are now connected to database "hair_salon_test" as user "bojana".
+hair_salon_test=#
 
 
 

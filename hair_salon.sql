@@ -35,7 +35,8 @@ SET default_with_oids = false;
 
 CREATE TABLE clients (
     id integer NOT NULL,
-    name character varying
+    name character varying,
+    stylist_id integer
 );
 
 
@@ -113,7 +114,7 @@ ALTER TABLE ONLY stylists ALTER COLUMN id SET DEFAULT nextval('stylists_id_seq':
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: bojana
 --
 
-COPY clients (id, name) FROM stdin;
+COPY clients (id, name, stylist_id) FROM stdin;
 \.
 
 
