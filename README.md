@@ -1,15 +1,15 @@
 
-Hair Salon SQL Assessment
+#Hair Salon SQL Assessment
 
-Bojana Skarich
+##Bojana Skarich
 
-March 20th, 2015
+###March 20th, 2015
 
-Description
+###Description
 
-This app will allow a hair salon owner to create a list of stylists and add clients who see each stylist. Each client sees only one stylist, and each stylist works independently. This is a one to many database relationship, with one stylist seeing many clients. 
+This app will allow a hair salon owner to create a list of stylists and add clients who see each stylist. Each client sees only one stylist, and each stylist works independently. This is a one to many database relationship, with one stylist seeing many clients. Although I didn't finish this app completely, I did get a chance to create the one to many relationship between the stylists and clients tables in my database. 
 
-Technology
+###Technology
 
 PHP
 Silex
@@ -19,7 +19,7 @@ Twig
 Composer
 
 
-Database Commands Log
+###Database Commands Log
 
 bojana=# CREATE DATABASE hair_salon;
 CREATE DATABASE
@@ -41,10 +41,7 @@ hair_salon=# \c hair_salon_test;
 You are now connected to database "hair_salon_test" as user "bojana".
 hair_salon_test=#
 
-
-
-
-License
+###License
 
 The MIT License (MIT)
 
